@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import HeaderNav from './components/HeaderNav';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import CardsTask from './components/CardsTask';
+import TextTask from './components/TextTask';
+import ScrollBarTask from './components/ScrollBarTask';
+import PaginationTask from './components/PaginationTask';
+import StarsTask from './components/StarsTask';
 
-function App() {
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <HeaderNav/>
+      <Routes>
+        <Route path='/' element={<HomePage/>}/>
+        <Route path='/cards' element={<CardsTask/>}/>
+        <Route path='/texts' element={<TextTask/>}/>
+        <Route path='/scrollbar' element ={<ScrollBarTask/>}/>
+        <Route path='/pagination' element ={<PaginationTask/>}/>
+        <Route path='/stars' element ={<StarsTask/>}/>
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
